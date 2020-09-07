@@ -50,7 +50,7 @@ jobs:
           to: angus68p_n944r@ludxc.com
           from: Luke skywalker
           content_type: text/html
-          attachments: /build/app/outputs/flutter-apk/app-release.apk
+          attachments: ./build/app/outputs/flutter-apk/app-release.apk
           
       - name: Send email only apk
         uses: dawidd6/action-send-mail@v2
