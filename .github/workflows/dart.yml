@@ -39,15 +39,15 @@ jobs:
           path: ./build/app/outputs/flutter-apk
           
       - name: Send email
-        uses: devellany/send-mail@v1.0.2
+        uses: dawidd6/action-send-mail@v2
         with:
-          host: smtp.gmail.com
-          account: ${{secrets.ACCOUNT}}
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{secrets.ACCOUNT}}
           password: ${{secrets.PASSWORD}}
-          sender: Job
-          from: ${{secrets.ACCOUNT}}
+          subject: Job
+          body: its a body
           to: angus68p_n944r@ludxc.com
-          subject: mail title
-          file: file://./build/app/outputs/flutter-apk/app-release.apk
-          body: New app
+          from: Luke skywalker
+          content_type: text/html
         
