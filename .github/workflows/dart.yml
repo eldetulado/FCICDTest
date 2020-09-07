@@ -50,5 +50,19 @@ jobs:
           to: angus68p_n944r@ludxc.com
           from: Luke skywalker
           content_type: text/html
-          atachments: ./build/app/outputs/flutter-apk/app-release.apk
+          atachments: /build/app/outputs/flutter-apk/app-release.apk
+          
+      - name: Send email
+        uses: dawidd6/action-send-mail@v2
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: pruebas.segetic@gmail.com
+          password: ${{secrets.PASSWORD}}
+          subject: Job
+          body: its a body
+          to: angus68p_n944r@ludxc.com
+          from: Luke skywalker
+          content_type: text/html
+          atachments: app-release.apk
         
