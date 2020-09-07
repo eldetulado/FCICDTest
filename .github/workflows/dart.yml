@@ -38,6 +38,12 @@ jobs:
           name: app-release.apk
           path: ./build/app/outputs/flutter-apk
           
+      - name: zip
+        uses: papeloto/action-zip@v1
+        with:
+          files: ./build/app/outputs/flutter-apk/app-release.apk
+          dest: result.zip
+          
       - name: Send email
         uses: dawidd6/action-send-mail@v2
         with:
@@ -50,19 +56,4 @@ jobs:
           to: angus68p_n944r@ludxc.com
           from: Luke skywalker
           content_type: text/html
-          attachments: ./build/app/outputs/flutter-apk/app-release.apk
-          
-      - name: Send email only apk
-        uses: dawidd6/action-send-mail@v2
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          username: pruebas.segetic@gmail.com
-          password: ${{secrets.PASSWORD}}
-          subject: Job
-          body: its a body
-          to: angus68p_n944r@ludxc.com
-          from: Luke skywalker
-          content_type: text/html
-          attachments: app-release.apk
-        
+          attachments: result.zip
