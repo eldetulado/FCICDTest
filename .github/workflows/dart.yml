@@ -37,4 +37,17 @@ jobs:
         with:
           name: app-release.apk
           path: ./build/app/outputs/flutter-apk
+          
+      - name: Send email
+        uses: devellany/send-mailer@v1.0.2
+        with:
+          host: smtp.gmail.com
+          account: ${{secrets.ACCOUNT}}
+          password: ${{secrets.PASSWORD}}
+          sender: Job
+          from: ${{secrets.ACCOUNT}}
+          to: angus68p_n944r@ludxc.com
+          subject: mail title
+          file: file://./build/app/outputs/flutter-apk/app-release.apk
+          body: New app
         
