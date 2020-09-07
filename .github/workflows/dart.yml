@@ -43,7 +43,7 @@ jobs:
         with:
           server_address: smtp.gmail.com
           server_port: 465
-          username: ${{secrets.ACCOUNT}}
+          username: pruebas
           password: ${{secrets.PASSWORD}}
           subject: Job
           body: its a body
