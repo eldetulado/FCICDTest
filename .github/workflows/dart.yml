@@ -41,7 +41,7 @@ jobs:
       - name: zip
         uses: papeloto/action-zip@v1
         with:
-          files: ./build/app/outputs/flutter-apk/app-release.apk
+          files: ./build/app/outputs/flutter-apk/app-release.apk readme.md
           dest: result.zip
           
       - name: Send email
