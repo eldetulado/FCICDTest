@@ -32,28 +32,15 @@ jobs:
         
       - name: Create apk
         run: flutter build apk
-        
-      - uses: actions/upload-artifact@v1
-        with:
-          name: app-release.apk
-          path: ./build/app/outputs/flutter-apk
-          
+                  
       - name: zip
         uses: papeloto/action-zip@v1
         with:
-          files: README.md
-          dest: result.zip
+          files: ./build/app/outputs/flutter-apk/app-release.apk
+          dest: app.zip
           
-      - name: Send email
-        uses: dawidd6/action-send-mail@v2
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          username: pruebas.segetic@gmail.com
-          password: ${{secrets.PASSWORD}}
-          subject: soy el sujeto
-          body: esto es un cuerpo
-          to: angus68p_n944r@ludxc.com
-          from: Luke skywalker
-          content_type: text/html
-          attachments: result.zip
+#       - uses: actions/upload-artifact@v1
+#         with:
+#           name: app-release.apk
+#           path: ./build/app/outputs/flutter-apk
+        
