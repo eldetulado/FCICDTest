@@ -11,9 +11,6 @@ jobs:
     name: Build APK
     runs-on: ubuntu-latest
 
-#     container:
-#       image:  google/dart:latest
-
     steps:
       - name: Checkout project
         uses: actions/checkout@v2
@@ -32,18 +29,12 @@ jobs:
         
       - name: Create apk
         run: flutter build apk
-                  
-      - name: zip
-        uses: papeloto/action-zip@v1
-        with:
-          files: ./build/app/outputs/flutter-apk/app-release.apk
-          dest: app.zip
           
       - name: list
         run: ls -la
 
       - uses: actions/upload-artifact@v1
         with:
-          name: app.zip
-          path: app.zip
+          name: app-release.apk
+          path: ./build/app/outputs/flutter-apk/
         
