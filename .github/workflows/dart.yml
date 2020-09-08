@@ -39,6 +39,9 @@ jobs:
           files: ./build/app/outputs/flutter-apk/app-release.apk
           dest: app.zip
           
+      - name: list
+        run: ls -la
+
 #       - uses: actions/upload-artifact@v1
 #         with:
 #           name: app-release.apk
