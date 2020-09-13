@@ -33,10 +33,10 @@ jobs:
       - name: list
         run: ls -la
 
-      - uses: actions/upload-artifact@v1
-        with:
-          name: app-release.apk
-          path: ./build/app/outputs/flutter-apk/
+#       - uses: actions/upload-artifact@v1
+#         with:
+#           name: app-release.apk
+#           path: ./build/app/outputs/flutter-apk/
           
       - name: Generate release
         uses: ncipollo/release-action@v1
