@@ -37,4 +37,11 @@ jobs:
         with:
           name: app-release.apk
           path: ./build/app/outputs/flutter-apk/
+          
+      - name: Generate release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: result.zip
+          tag: "release"
+          token: ${{ secrets.GITHUB_TOKEN }}
         
