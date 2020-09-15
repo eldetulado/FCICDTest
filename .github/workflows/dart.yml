@@ -3,8 +3,8 @@ name: Building app
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    tags: 
+      - '*'
 
 jobs:
   build:
@@ -42,6 +42,5 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           artifacts: ./build/app/outputs/flutter-apk/app-release.apk
-          tag: "Release"
           token: ${{ secrets.GITHUB_TOKEN }}
         
