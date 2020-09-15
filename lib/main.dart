@@ -4,6 +4,26 @@ void main() {
   runApp(MyApp());
 }
 
+int calc(int num) {
+  return num * 2;
+}
+
+bool validateFormatPass(String pass) {
+  final haveLetter = pass.contains(RegExp(r'[a-z]'));
+  final haveMayusLetter = pass.contains(RegExp(r'[A-Z]'));
+  final haveNumber = pass.contains(RegExp(r'[0-9]'));
+  final haveSpecialCharacter = pass.contains(RegExp(r'[!@#$&*]'));
+  final haveSpace = pass.contains(" ");
+  final length = pass.length >= 8 && pass.length <= 15;
+
+  return haveLetter &&
+      haveMayusLetter &&
+      haveNumber &&
+      haveSpecialCharacter &&
+      length &&
+      !haveSpace;
+}
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
